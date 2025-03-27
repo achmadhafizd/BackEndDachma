@@ -3,9 +3,9 @@
   "main": "server.ts",
   "type": "module",
   "scripts": {
-    "start": "bun run server.ts", 
-    "dev": "bun --hot server.ts", 
-    "build": "tsc"  
+    "start": "bun run server.ts",
+    "dev": "bun --hot server.ts",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bun": "latest",
