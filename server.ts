@@ -14,22 +14,23 @@ import adminRoutes from "./routes/adminRoutes";
 import productAdminRoutes from "./routes/productAdminRoutes";
 import adminOrderRoutes from "./routes/adminOrderRoutes";
 
+console.log("✅ Express App Loaded");
+
 // Load environment variables
 dotenv.config();
 
 // Initialize Express
-const app = express();
+export const app = express();
 app.use(express.json());
 app.use(cors());
 
 // Set port
-const PORT = process.env.PORT || 8000;
+// const PORT = process.env.PORT || 8000;
 
 // Connect to MongoDB
 connectDB();
-
 // Routes Test Endpoint
-app.get("/", (req: Request, res: Response) => {
+app.get(`/`, (req: Request, res: Response) => {
   res.send(`Welcome to Dachma E-Commerce`);
 });
 
@@ -48,12 +49,13 @@ app.use("/api/admin/products", productAdminRoutes);
 app.use("/api/admin/orders", adminOrderRoutes);
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
 
 // Error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.message);
   res.status(500).json({ message: "Internal Server Error" });
 });
+
