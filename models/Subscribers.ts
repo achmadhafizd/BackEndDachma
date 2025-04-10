@@ -1,5 +1,5 @@
-import { subscribe } from "diagnostics_channel";
 import mongoose from "mongoose";
+import type { ISubscribers } from "../types/subscribersModel";
 
 const subscriberSchema = new mongoose.Schema<ISubscribers>({
   email: {
