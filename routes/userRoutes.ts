@@ -6,6 +6,7 @@ import type { ILoginBody, IRegisterBody } from "../types/userRoutes";
 import { protect } from "../middleware/auth.middleware";
 
 const router = express.Router();
+router.use(express.json());
 
 // @route POST /api/users/Register
 // @desc Register a new user
@@ -60,11 +61,10 @@ const loginUser = async (
   next: express.NextFunction
 ) => {
   const { email, password } = req.body;
-
   try {
     // find user by email
     let user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "Invalid Credentials" });
+    if (!user) return res.status(400).json({ message: "User Not Found" });
 
     const isMatch = await user.matchPassword(password);
     if (!isMatch)
