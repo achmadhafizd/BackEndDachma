@@ -22,3 +22,8 @@ Aplikasi ini dapat diakses melalui: https://back-end-dachma.vercel.app
 ```bash
 git clone https://github.com/achmadhafizd/BackEndDachma.git
 cd BackEndDachma
+
+bun install
+
+```
+
